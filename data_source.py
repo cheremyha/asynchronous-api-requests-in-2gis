@@ -50,3 +50,4 @@ routes_points_list = [
     {'route_id': 1, 'data': route_points_route_0},
     {'route_id': 0, 'data': route_points_route_1},
 ]
+

@@ -69,8 +69,10 @@ async def main(routes_points_list):
     for route in routes_points_list:
         route_points = route['data']
         tasks.append(asyncio.create_task(get_data_by_route(route_points=route_points)))
-        results = await asyncio.gather(*tasks)
 
+    results = await asyncio.gather(*tasks)
+
+    # Set fata from response in result_list
     result_list = []
     for route_result in results:
         result_list.append(route_result)
