@@ -12,4 +12,4 @@ You can use this code for quick calculation distance and duration by route.
  <p>
 <p> 
 <p> Performance measurement (only speed) says that the asynchronous api client is ten as fast as the usual api client using requests library. <p> 
-<p> But you need remember that the program execution time depends of: type api client (asynchronous or synchronous ), quantity of routes, api server. <p>
+<p> This value ( ten ) was measured on 1000 request using real routes. But this value can be different in your case. Because it depend of quantity of routes and api server.<p>
