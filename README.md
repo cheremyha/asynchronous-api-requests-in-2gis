@@ -1,7 +1,8 @@
 # asynchronous-api-requests-in-2gis
 You can use this code for quick calculation distance and duration by route. 
+<p>Link to technical documentation api<p>
+ <p> https://docs.2gis.com/ru/api/navigation/directions/overview<p>
 
-<p><a href="[url](https://docs.2gis.com/ru/api/navigation/directions/overview)">Link to technical documentation api</a><p>
 <p>Example of a response to request: 
  <p>
     [
