@@ -46,6 +46,19 @@ route_points_route_1 = {
     'route_id': 1,
 }
 
+route_points_route_0 = {
+ 'type': 'statistic',
+ 'points': [{'type': 'stop', 'x': 60.49992370605469, 'y': 56.79222106933594},
+  {'y': 56.79198455810547, 'x': 60.47875213623047, 'type': 'pref'},
+  {'y': 56.78926467895508, 'x': 60.47233200073242, 'type': 'pref'},
+  {'y': 56.81011962890625, 'x': 60.547752380371094, 'type': 'pref'},
+  {'y': 56.800086975097656, 'x': 60.55803298950195, 'type': 'pref'},
+  {'y': 56.744850158691406, 'x': 60.60457229614258, 'type': 'pref'},
+  {'type': 'stop', 'x': 60.49992370605469, 'y': 56.79222106933594}],
+ 'utc': 1662023713.0,
+ 'route_id': 1,
+}
+
 routes_points_list = [
     {'route_id': 1, 'data': route_points_route_0},
     {'route_id': 0, 'data': route_points_route_1},

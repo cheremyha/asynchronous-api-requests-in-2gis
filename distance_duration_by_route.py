@@ -2,11 +2,13 @@ import json
 import asyncio
 from aiohttp import ClientSession, TCPConnector
 
-from secret_key import get_secret_api_key
+from get_conf_data import get_secret_api_key, get_connections_limit
 from data_source import routes_points_list
 
-# Get secret api key from config file.
+
+# Get secret api key and connections limit from config file.
 secret_api_key = get_secret_api_key(file_name='config.ini')
+connections_limit = get_connections_limit(file_name='config.ini')
 
 
 async def get_data_by_route(route_points):
@@ -18,8 +20,8 @@ async def get_data_by_route(route_points):
     :return: Dictionary with route_id, distance, duration, status code of response by this route.
     """
 
-    # Set limit for RPS ( Response per second ).
-    connector = TCPConnector(limit=5)
+    # Set limit amount of simultaneously opened connections you can pass limit parameter to connector.
+    connector = TCPConnector(limit=connections_limit)
     async with ClientSession(connector=connector) as session:
 
         # Set address and key for request.
@@ -34,17 +36,22 @@ async def get_data_by_route(route_points):
         ) as response:
             route_id = route_points['route_id']
 
-            response_ = await response.json()
+            response_dict = await response.json()
 
             # Here we start parsing response data.
             # And save these in variables.
             status_code = response.status
 
-            response = response_['result'][0]
+            if response.ok and response_dict:  # If we have good(by status_code) and not empty response.
+                response = response_dict['result'][0]
 
-            # Get route distance and duration from response.
-            distance = response['total_distance']
-            duration = response['total_duration']
+                # Get route distance and duration from response.
+                distance = response['total_distance']
+                duration = response['total_duration']
+
+            else:  # If we have bad or empty response we use stub for distance and duration.
+                distance = None
+                duration = None
 
             return_dict = {
                 'route_id': route_id,
