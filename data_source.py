@@ -47,7 +47,7 @@ route_points_route_1 = {
 }
 
 
-routes_points_list = [
+routes_points_list_ds = [
     {'route_id': 1, 'data': route_points_route_0},
     {'route_id': 0, 'data': route_points_route_1},
 ]

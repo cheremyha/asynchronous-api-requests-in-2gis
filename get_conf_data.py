@@ -1,3 +1,6 @@
+"""
+This code pass secret key from congif.ini file to distance_durations script.
+"""
 import configparser
 
 
