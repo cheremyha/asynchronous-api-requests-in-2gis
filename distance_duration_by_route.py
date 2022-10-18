@@ -2,7 +2,6 @@
 This code is asynchronous api client for 2 gis service.
 It takes data from data_source file and sent requests to 2 gis.
 """
-
 import json
 import asyncio
 from aiohttp import ClientSession, TCPConnector
@@ -56,7 +55,8 @@ async def get_data_by_route(route_points):
                 distance = response['total_distance']
                 duration = response['total_duration']
 
-            else:  # If we have bad or empty response we use stub for distance and duration.
+            # If we have bad or empty response we use stub for distance and duration.
+            else:
                 distance = None
                 duration = None
 
